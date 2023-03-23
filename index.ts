@@ -1,6 +1,6 @@
 import express, { Express } from "express";
 import dotenv from "dotenv";
-import signup from "./router/signup";
+import signup from "./router/login";
 
 dotenv.config();
 
