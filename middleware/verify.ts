@@ -9,8 +9,3 @@ export const verify = <Schema extends z.ZodTypeAny>(schema: Schema) => (req: Req
     }
     next();
 }
-
-
-
-
-
