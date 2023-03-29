@@ -35,7 +35,7 @@ router.post(
 
     const idToken = await getIdToken(loginRequest.code);
     if (!idToken) {
-      return res.sendStatus(401).json({ error: "Invalid code" });
+      return res.sendStatus(401);
     }
 
     const payload: unknown = jsonwebtoken.decode(idToken);
@@ -43,10 +43,10 @@ router.post(
     if (!result) {
       return res.status(500);
     }
-    const data : UserType = result
-  
-    const user = new User(data)
-    await user.save()
+    const data: UserType = result;
+
+    const user = new User(data);
+    await user.save();
 
     const sessionToken = jwt.sign(result, secretKey);
     res.json(sessionToken);
